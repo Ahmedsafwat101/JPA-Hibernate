@@ -6,6 +6,8 @@ import javax.persistence.*;
 @Table(name = "employee")
 public class Employee {
 
+
+
     @Id
     @Column(name = "emp_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +20,18 @@ public class Employee {
     private Double salary;
     @Column(name = "emp_phone", nullable = false, length = 200)
     private String phone;
+
+
+    public Employee(String name, String email, String phone,Double salary) {
+        this.name = name;
+        this.email = email;
+        this.salary = salary;
+        this.phone = phone;
+    }
+
+    public Employee() {
+
+    }
 
 
     public Long getId() {

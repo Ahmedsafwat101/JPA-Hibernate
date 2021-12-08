@@ -1,27 +1,38 @@
 import entities.Employee;
-
-import javax.persistence.*;
-import java.util.List;
+import repositires.EmployeeRepositoryImp;
 
 public class App {
-    private static final EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence
-            .createEntityManagerFactory("JPAHibernateDemo");
+   // private static final EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory("JPAHibernateDemo");
 
     public static void main(String[] args) {
 
-        addEmployee("Sue", "Sue@gmail.com","1234568",2500d);
-        addEmployee("Ahmed", "Ahmed@gmail.com","1234568",2500d);
-        addEmployee("Ali", "Ali@gmail.com","1234568",2500d);
-        addEmployee("Zizo", "Zizo@gmail.com","1234568",2500d);
-        getEmployees();
-        deleteEmployee(3L);
-        getEmployee(1L);
-        updateEmployeeName(2L,"Abbas");
+        EmployeeRepositoryImp employeeRepository =  new EmployeeRepositoryImp();
 
-        ENTITY_MANAGER_FACTORY.close();
+        employeeRepository.addEmployee(new Employee("Sue", "Sue@gmail.com","1234568",2500d));
+        employeeRepository.addEmployee(new Employee("Ahmed", "Ahmed@gmail.com","1234568",2500d));
+        employeeRepository.addEmployee(new Employee("Ali", "Ali@gmail.com","1234568",2500d));
+        employeeRepository.addEmployee(new Employee("Zizo", "Zizo@gmail.com","1234568",2500d));
+
+        employeeRepository.getAllEmployees().forEach(it-> System.out.println(it.toString()));
+
+        System.out.println(employeeRepository.getEmployee(1L));
+
+        employeeRepository.deleteEmployee(1L);
+        employeeRepository.getAllEmployees().forEach(it-> System.out.println(it.toString()));
+
+        employeeRepository.updateEmployeeName("Abbas",2L);
+        System.out.println(employeeRepository.getEmployee(2L));
+
+
+        employeeRepository.updateEmployee(3L,new Employee("Maged","Maged@gmail.com","1234578",2000d));
+        System.out.println(employeeRepository.getEmployee(3L));
+
+
+        employeeRepository.tearDownEntityManagerFactory();
+
     }
 
-    public static void addEmployee(String emp_name, String emp_email,String emp_phone,Double emp_salary) {
+    /*public static void addEmployee(String emp_name, String emp_email,String emp_phone,Double emp_salary) {
         // The EntityManager class allows operations such as create, read, update, delete
         EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
         // Used to issue transactions on the EntityManager
@@ -147,5 +158,5 @@ public class App {
             // Close EntityManager
             em.close();
         }
-    }
+    }*/
 }

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - EmployeeRepositoryTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>EmployeeRepositoryTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/repositires.html">repositires</a> &gt; EmployeeRepositoryTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">3</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">1.787s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+<li>
+<a href="#tab2">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">addEmployeeReturnTrue()</td>
+<td class="success">1.426s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">removeEmployeeReturnTrue()</td>
+<td class="success">0.210s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">updateEmployeeNameEqualsNewName()</td>
+<td class="success">0.151s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>Hibernate: 
+    
+    drop table if exists employee
+Hibernate: 
+    
+    create table employee (
+       emp_id bigint not null auto_increment,
+        emp_email varchar(200) not null,
+        emp_name varchar(200) not null,
+        emp_phone varchar(200) not null,
+        emp_salary double precision,
+        primary key (emp_id)
+    ) engine=InnoDB
+Hibernate: 
+    insert 
+    into
+        employee
+        (emp_email, emp_name, emp_phone, emp_salary) 
+    values
+        (?, ?, ?, ?)
+Employee{id=1, name='Ahmed', email='Ahmed@gmail.com', salary=20.0, phone='123456'}
+Hibernate: 
+    
+    drop table if exists employee
+Hibernate: 
+    
+    create table employee (
+       emp_id bigint not null auto_increment,
+        emp_email varchar(200) not null,
+        emp_name varchar(200) not null,
+        emp_phone varchar(200) not null,
+        emp_salary double precision,
+        primary key (emp_id)
+    ) engine=InnoDB
+Hibernate: 
+    insert 
+    into
+        employee
+        (emp_email, emp_name, emp_phone, emp_salary) 
+    values
+        (?, ?, ?, ?)
+Hibernate: 
+    select
+        employee0_.emp_id as emp_id1_0_,
+        employee0_.emp_email as emp_emai2_0_,
+        employee0_.emp_name as emp_name3_0_,
+        employee0_.emp_phone as emp_phon4_0_,
+        employee0_.emp_salary as emp_sala5_0_ 
+    from
+        employee employee0_ 
+    where
+        employee0_.emp_id is not null
+Hibernate: 
+    delete 
+    from
+        employee 
+    where
+        emp_id=1
+Hibernate: 
+    
+    drop table if exists employee
+Hibernate: 
+    
+    create table employee (
+       emp_id bigint not null auto_increment,
+        emp_email varchar(200) not null,
+        emp_name varchar(200) not null,
+        emp_phone varchar(200) not null,
+        emp_salary double precision,
+        primary key (emp_id)
+    ) engine=InnoDB
+Hibernate: 
+    insert 
+    into
+        employee
+        (emp_email, emp_name, emp_phone, emp_salary) 
+    values
+        (?, ?, ?, ?)
+Hibernate: 
+    update
+        employee 
+    set
+        emp_email=?,
+        emp_name=?,
+        emp_phone=?,
+        emp_salary=? 
+    where
+        emp_id=?
+Hibernate: 
+    select
+        employee0_.emp_id as emp_id1_0_0_,
+        employee0_.emp_email as emp_emai2_0_0_,
+        employee0_.emp_name as emp_name3_0_0_,
+        employee0_.emp_phone as emp_phon4_0_0_,
+        employee0_.emp_salary as emp_sala5_0_0_ 
+    from
+        employee employee0_ 
+    where
+        employee0_.emp_id=?
+</pre>
+</span>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>Dec 09, 2021 1:46:32 AM org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation
+INFO: HHH000204: Processing PersistenceUnitInfo [name: JPAHibernateDemo]
+Dec 09, 2021 1:46:32 AM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate ORM core version 5.6.1.Final
+Dec 09, 2021 1:46:32 AM org.hibernate.annotations.common.reflection.java.JavaReflectionManager &lt;clinit&gt;
+INFO: HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+Dec 09, 2021 1:46:33 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
+Dec 09, 2021 1:46:33 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/employeedb]
+Dec 09, 2021 1:46:33 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {password=****, user=root}
+Dec 09, 2021 1:46:33 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+Dec 09, 2021 1:46:33 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections &lt;init&gt;
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+Dec 09, 2021 1:46:33 AM org.hibernate.dialect.Dialect &lt;init&gt;
+INFO: HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+Dec 09, 2021 1:46:33 AM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@7c127f41] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Dec 09, 2021 1:46:33 AM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@570ab138] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Dec 09, 2021 1:46:33 AM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
+INFO: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Dec 09, 2021 1:46:33 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PoolState stop
+INFO: HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/employeedb]
+Dec 09, 2021 1:46:34 AM org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation
+INFO: HHH000204: Processing PersistenceUnitInfo [name: JPAHibernateDemo]
+Dec 09, 2021 1:46:34 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+Dec 09, 2021 1:46:34 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/employeedb]
+Dec 09, 2021 1:46:34 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {password=****, user=root}
+Dec 09, 2021 1:46:34 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+Dec 09, 2021 1:46:34 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections &lt;init&gt;
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+Dec 09, 2021 1:46:34 AM org.hibernate.dialect.Dialect &lt;init&gt;
+INFO: HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+Dec 09, 2021 1:46:34 AM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4bc15cd8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Dec 09, 2021 1:46:34 AM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@744ebc48] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Dec 09, 2021 1:46:34 AM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
+INFO: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Dec 09, 2021 1:46:34 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PoolState stop
+INFO: HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/employeedb]
+Dec 09, 2021 1:46:34 AM org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation
+INFO: HHH000204: Processing PersistenceUnitInfo [name: JPAHibernateDemo]
+Dec 09, 2021 1:46:34 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+Dec 09, 2021 1:46:34 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/employeedb]
+Dec 09, 2021 1:46:34 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {password=****, user=root}
+Dec 09, 2021 1:46:34 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+Dec 09, 2021 1:46:34 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections &lt;init&gt;
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+Dec 09, 2021 1:46:34 AM org.hibernate.dialect.Dialect &lt;init&gt;
+INFO: HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+Dec 09, 2021 1:46:34 AM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@53768e46] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Dec 09, 2021 1:46:34 AM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3a8e427a] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Dec 09, 2021 1:46:34 AM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
+INFO: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Dec 09, 2021 1:46:34 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PoolState stop
+INFO: HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/employeedb]
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.1</a> at Dec 9, 2021, 1:46:34 AM</p>
+</div>
+</div>
+</body>
+</html>
