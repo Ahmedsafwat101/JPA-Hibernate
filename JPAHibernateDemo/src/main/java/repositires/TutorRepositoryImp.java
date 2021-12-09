@@ -1,35 +1,36 @@
 package repositires;
 
-import entities.Employee;
-
+import entities.Tutor;
 import javax.persistence.*;
 import java.util.List;
 
-public class  EmployeeRepositoryImp  {
+public class TutorRepositoryImp {
     private EntityManager entityManager;
     private EntityManagerFactory emf;
 
-    public EmployeeRepositoryImp() {
+    public TutorRepositoryImp() {
         this.emf = Persistence.createEntityManagerFactory("JPAHibernateDemo");
         this.entityManager = this.emf.createEntityManager();
     }
 
-    public Employee addEmployee(Employee employee) {
+    public Tutor addTutor(Tutor tutor) {
         entityManager.getTransaction().begin();
-        entityManager.persist(employee);
+        System.out.println(tutor);
+        entityManager.persist(tutor);
         entityManager.getTransaction().commit();
-        return employee;
+        return tutor;
     }
 
-    public boolean deleteEmployee(Long id) {
+
+    public boolean deleteTutor(Long id) {
         entityManager.getTransaction().begin();
-        Query query = entityManager.createQuery("Delete from Employee where id =" + id);
+        Query query = entityManager.createQuery("Delete from Tutor where id =" + id);
         query.executeUpdate();
         entityManager.getTransaction().commit();
         return true;
     }
 
-    public Employee updateEmployee(Long id,Employee emp) {
+    /*public Student updateEmployee(Long id,Employee emp) {
         Employee studentToUpdate = findById(id);
         entityManager.getTransaction().begin();
 
@@ -40,33 +41,33 @@ public class  EmployeeRepositoryImp  {
 
         entityManager.getTransaction().commit();
         return studentToUpdate;
-    }
+    }*/
 
-    public Employee updateEmployeeName(String name, Long id) {
-        Employee studentToUpdate = findById(id);
+    public Tutor updateTutorName(String fName,String lName, Long id) {
+        Tutor tutorToUpdate = findById(id);
         entityManager.getTransaction().begin();
 
-        studentToUpdate.setName(name);
+        tutorToUpdate.setFirstName(fName);
+        tutorToUpdate.setLastName(lName);
 
         entityManager.getTransaction().commit();
         entityManager.clear();
         return findById(id);
     }
 
-    public Employee getEmployee(Long id){
+    public Tutor getTutor(Long id){
         return findById(id);
     }
 
 
-    public List<Employee> getAllEmployees(){
-
-        String strQuery = "SELECT emp FROM Employee emp WHERE emp.id IS NOT NULL";
-        TypedQuery<Employee> tq = entityManager.createQuery(strQuery, Employee.class);
+    public List<Tutor> getAllTutors(){
+        String strQuery = "SELECT tut FROM Tutor tut WHERE tut.id IS NOT NULL";
+        TypedQuery<Tutor> tq = entityManager.createQuery(strQuery, Tutor.class);
         return tq.getResultList();
     }
 
-     public Employee findById(Long id) {
-        return entityManager.find(Employee.class, id);
+    public Tutor findById(Long id) {
+        return entityManager.find(Tutor.class, id);
     }
 
     public void tearDownEntityManagerFactory() {
@@ -74,4 +75,3 @@ public class  EmployeeRepositoryImp  {
 
     }
 }
-

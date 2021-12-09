@@ -6,8 +6,6 @@ import javax.persistence.*;
 @Table(name = "employee")
 public class Employee {
 
-
-
     @Id
     @Column(name = "emp_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +18,6 @@ public class Employee {
     private Double salary;
     @Column(name = "emp_phone", nullable = false, length = 200)
     private String phone;
-
 
     public Employee(String name, String email, String phone,Double salary) {
         this.name = name;
@@ -73,6 +70,7 @@ public class Employee {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
 
     @Override
     public String toString() {
