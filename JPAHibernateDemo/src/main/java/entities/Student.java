@@ -2,6 +2,8 @@ package entities;
 
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Student {
@@ -12,20 +14,40 @@ public class Student {
     private String firstName;
     @Column(name = "last_name", nullable = false,length = 150)
     private String lastName;
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "tutor_id")
+
+    @OneToOne
+    @JoinColumn(name = "tutor_id",unique = true)
     private Tutor tutor;
 
+    @ManyToMany(targetEntity = Teacher.class)
+    private Set<Teacher> teachers = new HashSet<>();
 
-    public Student(Long id, String firstName, String lastName) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+
+    public Set<Teacher> getTeachers() {
+        return teachers;
+    }
+
+    public void setTeachers(Set<Teacher> teachers) {
+        this.teachers = teachers;
     }
 
     public Student(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    public Student(Long id, String firstName, String lastName) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+
+    }
+
+
+    public Student(String firstName, String lastName, Tutor tutor) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.tutor = tutor;
     }
 
     public Student() {
@@ -64,6 +86,20 @@ public class Student {
         this.tutor = tutor;
     }
 
+    public void addTeacher(Teacher teacher) {
+        boolean added = teachers.add(teacher);
+        if (added) {
+            teacher.getStudents().add(this);
+        }
+    }
+
+    public void removeTeacher(Teacher teacher) {
+        boolean remove = teachers.remove(teacher);
+        if (remove) {
+            teacher.getStudents().remove(this);
+        }
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -71,6 +107,7 @@ public class Student {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", tutor=" + tutor +
+                ", teachers=" + teachers +
                 '}';
     }
 }

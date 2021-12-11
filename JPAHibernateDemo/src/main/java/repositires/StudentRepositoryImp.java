@@ -1,6 +1,7 @@
 package repositires;
 
 import entities.Employee;
+import entities.School;
 import entities.Student;
 import entities.Tutor;
 
@@ -23,13 +24,19 @@ public class StudentRepositoryImp {
         return student;
     }
 
-    public Student addTutor(Long id, Tutor tutor){
+
+    public void addTutor(Long id, Tutor tutor){
         entityManager.getTransaction().begin();
         Student student = findById(id);
-        student.setTutor(tutor);
+        if(student!=null){
+            //tutor.setStudent(student);
+            student.setTutor(tutor);
+        }
+        entityManager.persist(student);
         entityManager.getTransaction().commit();
-        return student;
+
     }
+
 
     public boolean deleteStudent(Long id) {
         entityManager.getTransaction().begin();

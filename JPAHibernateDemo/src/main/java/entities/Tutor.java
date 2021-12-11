@@ -24,6 +24,14 @@ public class Tutor {
         this.lastName = lastName;
     }
 
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
     public Tutor() {
     }
 
@@ -57,6 +65,7 @@ public class Tutor {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", student=" + student +
                 '}';
     }
 }

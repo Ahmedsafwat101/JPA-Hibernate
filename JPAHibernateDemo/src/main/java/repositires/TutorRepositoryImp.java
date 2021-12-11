@@ -1,5 +1,6 @@
 package repositires;
 
+import entities.Student;
 import entities.Tutor;
 import javax.persistence.*;
 import java.util.List;
@@ -22,6 +23,17 @@ public class TutorRepositoryImp {
     }
 
 
+   /* public void addStudent(Long id, Student student){
+        entityManager.getTransaction().begin();
+        Tutor tutor = findById(id);
+        if(tutor!=null){
+            tutor.setStudent(student);
+        }
+        entityManager.persist(tutor);
+        entityManager.getTransaction().commit();
+    }*/
+
+
     public boolean deleteTutor(Long id) {
         entityManager.getTransaction().begin();
         Query query = entityManager.createQuery("Delete from Tutor where id =" + id);
@@ -30,18 +42,7 @@ public class TutorRepositoryImp {
         return true;
     }
 
-    /*public Student updateEmployee(Long id,Employee emp) {
-        Employee studentToUpdate = findById(id);
-        entityManager.getTransaction().begin();
 
-        studentToUpdate.setName(emp.getName());
-        studentToUpdate.setPhone(emp.getPhone());
-        studentToUpdate.setSalary(emp.getSalary());
-        studentToUpdate.setEmail(emp.getEmail());
-
-        entityManager.getTransaction().commit();
-        return studentToUpdate;
-    }*/
 
     public Tutor updateTutorName(String fName,String lName, Long id) {
         Tutor tutorToUpdate = findById(id);
