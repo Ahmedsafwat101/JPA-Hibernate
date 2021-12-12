@@ -94,9 +94,12 @@ public class App2 {
         teacherRepository.addTeacher(teacher1);
         teacherRepository.addTeacher(teacher2);
 
-
         System.out.println(teacher1.getStudents());
 
         studentRepository.tearDownEntityManagerFactory();
     }
 }
+
+
+//parent repo generic type
+

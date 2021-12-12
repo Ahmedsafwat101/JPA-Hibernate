@@ -19,7 +19,7 @@ public class Teacher {
     @JoinColumn
     private School school;
 
-
+    //Modification refer to powerPoint
     @ManyToMany(targetEntity = Student.class)
     private Set<Student> students = new HashSet<>();
 
@@ -78,6 +78,8 @@ public class Teacher {
             student.getTeachers().remove(this);
         }
     }
+
+    //data and behaviour in same class isn't recom
 
     public Set<Student> getStudents() {
         return students;

@@ -18,9 +18,10 @@ public class Student {
     @OneToOne
     @JoinColumn(name = "tutor_id",unique = true)
     private Tutor tutor;
-
+    //Modification --> list
     @ManyToMany(targetEntity = Teacher.class)
     private Set<Teacher> teachers = new HashSet<>();
+
 
 
     public Set<Teacher> getTeachers() {
